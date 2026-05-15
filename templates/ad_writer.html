@@ -1,0 +1,422 @@
+{% extends "base.html" %}
+{% block title %}Ad Writer | OriginAI{% endblock %}
+{% block page_name %}Ad Writer{% endblock %}
+
+{% block content %}
+
+<div class="max-w-5xl mx-auto">
+
+    <!-- HEADER -->
+    <div class="mb-10">
+
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-black uppercase tracking-[0.2em] mb-5">
+
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+
+            AI Conversion Engine
+
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+            Ad Writer
+        </h1>
+
+        <p class="text-slate-500 mt-4 text-lg leading-relaxed max-w-3xl">
+            Generate high-converting ad copy using advanced persuasion psychology, emotional hooks, AIDA frameworks, and platform-optimized AI writing systems.
+        </p>
+
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid grid-cols-1 gap-8">
+
+        <!-- INPUT SECTION -->
+        <div class="bg-white border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden">
+
+            <!-- TOP -->
+            <div class="px-8 py-5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center">
+
+                        <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z">
+                            </path>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-sm font-black uppercase tracking-wider text-slate-700">
+                            Ad Generation Engine
+                        </h2>
+
+                        <p class="text-xs text-slate-400 font-semibold">
+                            AIDA + PAS + Emotional Marketing
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="flex items-center gap-2">
+
+                    <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="p-8">
+
+                <!-- SETTINGS -->
+                <div class="grid md:grid-cols-3 gap-5 mb-6">
+
+                    <!-- PLATFORM -->
+                    <div>
+
+                        <label class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+                            Platform
+                        </label>
+
+                        <select id="platform"
+                            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 text-slate-700 font-semibold transition-all">
+
+                            <option>Instagram</option>
+                            <option>Facebook</option>
+                            <option>Google Ads</option>
+                            <option>YouTube</option>
+                            <option>Twitter/X</option>
+                            <option>LinkedIn</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- TONE -->
+                    <div>
+
+                        <label class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+                            Tone
+                        </label>
+
+                        <select id="tone"
+                            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 text-slate-700 font-semibold transition-all">
+
+                            <option>Persuasive</option>
+                            <option>Luxury</option>
+                            <option>Professional</option>
+                            <option>Emotional</option>
+                            <option>Bold</option>
+                            <option>Minimal</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- AUDIENCE -->
+                    <div>
+
+                        <label class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+                            Audience
+                        </label>
+
+                        <input
+                            id="audience"
+                            type="text"
+                            placeholder="Entrepreneurs"
+                            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 text-slate-700 font-semibold transition-all"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT -->
+                <div class="mb-8">
+
+                    <label class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+                        Product / Service
+                    </label>
+
+                    <textarea
+                        id="product"
+                        rows="7"
+                        class="w-full p-6 bg-slate-50 border border-slate-200 rounded-[1.5rem] outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 resize-none transition-all text-slate-700 leading-relaxed placeholder:text-slate-400 font-medium"
+                        placeholder="Describe your product, target audience, pain points, and benefits..."></textarea>
+
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+
+                    <!-- INFO -->
+                    <div class="flex items-center gap-4">
+
+                        <div class="flex -space-x-3">
+
+                            <div class="w-10 h-10 rounded-full bg-indigo-600 border-4 border-white flex items-center justify-center text-white text-[10px] font-black shadow-lg">
+                                AIDA
+                            </div>
+
+                            <div class="w-10 h-10 rounded-full bg-slate-800 border-4 border-white flex items-center justify-center text-white text-[10px] font-black shadow-lg">
+                                PAS
+                            </div>
+
+                            <div class="w-10 h-10 rounded-full bg-indigo-200 border-4 border-white flex items-center justify-center text-indigo-700 text-[10px] font-black shadow-lg">
+                                CTA
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-sm font-bold text-slate-700">
+                                Conversion Frameworks
+                            </p>
+
+                            <p class="text-xs text-slate-400">
+                                Optimized for high CTR and engagement
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button
+                        onclick="generateAd()"
+                        id="gen-btn"
+                        class="w-full md:w-auto px-10 py-5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white rounded-2xl font-black tracking-wide transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-3">
+
+                        <span>Generate Ad Copy</span>
+
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="relative">
+
+            <div class="absolute -inset-1 bg-indigo-500/10 blur-2xl rounded-[2rem]"></div>
+
+            <div class="relative bg-white border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden">
+
+                <!-- TOP -->
+                <div class="px-8 py-5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+
+                    <div class="flex items-center gap-3">
+
+                        <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4">
+                            </path>
+
+                        </svg>
+
+                        <span class="text-[11px] font-black uppercase tracking-[0.25em] text-slate-400">
+                            Generated Ad Copy
+                        </span>
+
+                    </div>
+
+                    <button
+                        onclick="copyAd()"
+                        class="px-4 py-2 rounded-xl bg-white border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 text-slate-500 text-xs font-black uppercase tracking-wider transition-all">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <!-- RESULT -->
+                <div class="p-8">
+
+                    <div
+                        id="output"
+                        class="min-h-[300px] whitespace-pre-wrap text-slate-700 leading-relaxed font-mono text-sm">
+
+                        <span class="text-slate-300 italic font-sans">
+                            Your generated ad copy will appear here...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+async function generateAd() {
+
+    const btn = document.getElementById("gen-btn");
+
+    const output = document.getElementById("output");
+
+    const product = document.getElementById("product").value;
+    const audience = document.getElementById("audience").value;
+    const platform = document.getElementById("platform").value;
+    const tone = document.getElementById("tone").value;
+
+    if (!product.trim()) {
+
+        output.innerText = "Please enter product details.";
+
+        return;
+    }
+
+    btn.disabled = true;
+
+    btn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+
+        <span>Generating...</span>
+    `;
+
+    output.classList.add("opacity-50");
+
+    output.innerText = "Applying conversion psychology...";
+
+    try {
+
+        const res = await fetch("/api/generate-ad", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                product: product,
+                audience: audience,
+                platform: platform,
+                tone: tone
+            })
+
+        });
+
+        const data = await res.json();
+
+        console.log(data);
+
+        output.classList.remove("opacity-50");
+
+        output.innerText = data.result || data.error;
+
+    } catch (e) {
+
+        console.log(e);
+
+        output.innerText = "Error generating ad copy.";
+
+        output.classList.remove("opacity-50");
+
+    } finally {
+
+        btn.disabled = false;
+
+        btn.innerHTML = `
+            <span>Generate Ad Copy</span>
+
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+            </svg>
+        `;
+    }
+
+}
+
+
+function copyBlog(){
+
+    const text = document.getElementById("output").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    const popup = document.createElement("div");
+
+    popup.innerHTML = `
+        <div class="fixed top-6 right-6 z-50 flex items-center gap-3 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 animate-[fadeIn_0.2s_ease]">
+            
+            <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center">
+                <svg class="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <span class="text-sm font-semibold tracking-wide">
+                Copied Successfully
+            </span>
+
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+
+        popup.style.opacity = "0";
+        popup.style.transform = "translateY(-10px)";
+        popup.style.transition = "all 0.3s ease";
+
+    }, 1800);
+
+    setTimeout(() => {
+
+        popup.remove();
+
+    }, 2200);
+}
+
+</script>
+
+{% endblock %}

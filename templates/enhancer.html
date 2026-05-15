@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% block title %}Prompt Enhancer | OriginAI{% endblock %}
+{% block page_name %}Prompt Enhancer{% endblock %}
+
+{% block content %}
+
+<div class="max-w-5xl mx-auto">
+
+    <!-- COPY POPUP -->
+    <div id="copy-popup"
+        class="fixed top-6 right-6 z-50 translate-y-[-20px] opacity-0 pointer-events-none transition-all duration-300">
+
+        <div
+            class="flex items-center gap-3 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700">
+
+            <div class="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center">
+
+                <svg class="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7">
+                    </path>
+
+                </svg>
+
+            </div>
+
+            <div>
+                <p class="text-sm font-bold tracking-wide">
+                    Copied Successfully
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- HEADER -->
+    <div class="mb-10">
+
+        <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-black uppercase tracking-[0.2em] mb-5">
+
+            <svg class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z">
+                </path>
+
+            </svg>
+
+            AI Prompt Engineering
+
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+            Prompt Enhancer
+        </h1>
+
+        <p class="text-slate-500 mt-4 text-lg leading-relaxed max-w-3xl">
+            Transform weak prompts into premium structured AI instructions optimized for GPT, Claude, Gemini, and advanced LLM reasoning systems.
+        </p>
+
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid grid-cols-1 gap-8">
+
+        <!-- INPUT CARD -->
+        <div
+            class="bg-white border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden">
+
+            <!-- TOP BAR -->
+            <div
+                class="px-8 py-5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center">
+
+                        <svg class="w-5 h-5 text-indigo-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9.75 17L15 12l-5.25-5">
+                            </path>
+
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <h2
+                            class="text-sm font-black uppercase tracking-wider text-slate-700">
+
+                            Enhancement Engine
+
+                        </h2>
+
+                        <p class="text-xs text-slate-400 font-semibold">
+                            Multi-model prompt optimization
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="flex items-center gap-2">
+
+                    <div
+                        class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+
+                    <span
+                        class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+
+                        Online
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="p-8">
+
+                <!-- CONTROLS -->
+                <div class="grid md:grid-cols-2 gap-5 mb-6">
+
+                    <!-- CATEGORY -->
+                    <div>
+
+                        <label
+                            class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+
+                            Category
+
+                        </label>
+
+                        <select id="category"
+                            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 text-slate-700 font-semibold transition-all">
+
+                            <option value="General">General</option>
+                            <option value="Content Writing">Content Writing</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Coding">Coding</option>
+                            <option value="Business">Business</option>
+                            <option value="Storytelling">Storytelling</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- TONE -->
+                    <div>
+
+                        <label
+                            class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+
+                            Tone
+
+                        </label>
+
+                        <select id="tone"
+                            class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 text-slate-700 font-semibold transition-all">
+
+                            <option value="Professional">Professional</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Persuasive">Persuasive</option>
+                            <option value="Friendly">Friendly</option>
+                            <option value="Formal">Formal</option>
+                            <option value="Technical">Technical</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- TEXTAREA -->
+                <div class="mb-8">
+
+                    <label
+                        class="block text-[11px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">
+
+                        Raw Prompt
+
+                    </label>
+
+                    <textarea id="prompt"
+                        rows="8"
+                        class="w-full p-6 bg-slate-50 border border-slate-200 rounded-[1.5rem] outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-300 resize-none transition-all text-slate-700 leading-relaxed placeholder:text-slate-400 font-medium"
+                        placeholder="Example: write a blog about AI..."></textarea>
+
+                </div>
+
+                <!-- ACTIONS -->
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-5">
+
+                    <!-- MODEL BADGES -->
+                    <div class="flex items-center gap-4">
+
+                        <div class="flex -space-x-3">
+
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-600 border-4 border-white flex items-center justify-center text-white text-[10px] font-black shadow-lg">
+
+                                GPT
+
+                            </div>
+
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-800 border-4 border-white flex items-center justify-center text-white text-[10px] font-black shadow-lg">
+
+                                CLD
+
+                            </div>
+
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-200 border-4 border-white flex items-center justify-center text-indigo-700 text-[10px] font-black shadow-lg">
+
+                                GEM
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-sm font-bold text-slate-700">
+                                Cross-Model Optimization
+                            </p>
+
+                            <p class="text-xs text-slate-400">
+                                Optimized for modern LLM systems
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button onclick="enhancePrompt()"
+                        id="generate-btn"
+                        class="w-full md:w-auto px-10 py-5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white rounded-2xl font-black tracking-wide transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-3">
+
+                        <span>Enhance Prompt</span>
+
+                        <svg class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="relative">
+
+            <div
+                class="absolute -inset-1 bg-indigo-500/10 blur-2xl rounded-[2rem]"></div>
+
+            <div
+                class="relative bg-white border border-slate-200 rounded-[2rem] shadow-sm overflow-hidden">
+
+                <!-- TOP -->
+                <div
+                    class="px-8 py-5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+
+                    <div class="flex items-center gap-3">
+
+                        <svg class="w-5 h-5 text-indigo-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4">
+                            </path>
+
+                        </svg>
+
+                        <span
+                            class="text-[11px] font-black uppercase tracking-[0.25em] text-slate-400">
+
+                            Enhanced Output
+
+                        </span>
+
+                    </div>
+
+                    <button onclick="copyEnhanced()"
+                        class="px-4 py-2 rounded-xl bg-white border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 text-slate-500 text-xs font-black uppercase tracking-wider transition-all">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <!-- RESULT -->
+                <div class="p-8">
+
+                    <div id="output"
+                        class="min-h-[280px] whitespace-pre-wrap text-slate-700 leading-relaxed font-mono text-sm">
+
+                        <span class="text-slate-300 italic font-sans">
+                            Your enhanced prompt will appear here...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+async function enhancePrompt() {
+
+    const prompt = document.getElementById("prompt").value;
+    const tone = document.getElementById("tone").value;
+    const category = document.getElementById("category").value;
+
+    const output = document.getElementById("output");
+    const button = document.getElementById("generate-btn");
+
+    if (!prompt.trim()) {
+
+        output.innerHTML = `
+            <div class="p-5 rounded-2xl bg-red-50 border border-red-100 text-red-600 font-semibold">
+                Please enter a prompt first.
+            </div>
+        `;
+
+        return;
+    }
+
+    button.disabled = true;
+
+    button.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24">
+
+            <circle class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4">
+            </circle>
+
+            <path class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2
+                5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824
+                3 7.938l3-2.647z">
+            </path>
+
+        </svg>
+
+        <span>Enhancing...</span>
+    `;
+
+    output.innerHTML = `
+        <div class="animate-pulse space-y-5">
+
+            <div class="h-5 bg-slate-100 rounded-xl w-3/4"></div>
+
+            <div class="space-y-3">
+
+                <div class="h-4 bg-slate-100 rounded-lg"></div>
+                <div class="h-4 bg-slate-100 rounded-lg"></div>
+                <div class="h-4 bg-slate-100 rounded-lg w-5/6"></div>
+
+            </div>
+
+            <div class="h-5 bg-slate-100 rounded-xl w-2/3"></div>
+
+            <div class="space-y-3">
+
+                <div class="h-4 bg-slate-100 rounded-lg"></div>
+                <div class="h-4 bg-slate-100 rounded-lg w-4/5"></div>
+
+            </div>
+
+        </div>
+    `;
+
+    try {
+
+        const response = await fetch("/api/enhance-prompt", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                prompt: prompt,
+                tone: tone,
+                category: category
+            })
+
+        });
+
+        const data = await response.json();
+
+        output.innerText = data.result || data.error;
+
+    } catch (error) {
+
+        output.innerHTML = `
+            <div class="p-6 bg-red-50 border border-red-100 rounded-2xl text-red-600 font-medium">
+                System Fault: The enhancement engine is currently unreachable.
+            </div>
+        `;
+
+    } finally {
+
+        button.disabled = false;
+
+        button.innerHTML = `
+            <span>Enhance Prompt</span>
+
+            <svg class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z">
+                </path>
+
+            </svg>
+        `;
+    }
+
+}
+
+
+function copyEnhanced() {
+
+    const text = document.getElementById("output").innerText;
+
+    if (!text.trim()) return;
+
+    navigator.clipboard.writeText(text);
+
+    const popup = document.getElementById("copy-popup");
+
+    popup.classList.remove("opacity-0", "translate-y-[-20px]");
+    popup.classList.add("opacity-100", "translate-y-0");
+
+    setTimeout(() => {
+
+        popup.classList.remove("opacity-100", "translate-y-0");
+        popup.classList.add("opacity-0", "translate-y-[-20px]");
+
+    }, 1800);
+
+}
+
+</script>
+
+{% endblock %}

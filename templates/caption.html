@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% block title %}Social Forge | Viral Hook Generator | Kinetic{% endblock %}
+{% block page_name %}Social Forge{% endblock %}
+
+{% block content %}
+
+<div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <header class="mb-10">
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4">
+
+            <svg class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+
+            Engagement Forge
+
+        </div>
+
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+            Social Forge
+        </h1>
+
+        <p class="text-slate-500 mt-2">
+            Generate viral captions, platform-specific hooks, and high-engagement content instantly.
+        </p>
+
+    </header>
+
+    <div class="grid grid-cols-1 gap-8">
+
+        <!-- Input Card -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-6 md:p-8">
+
+            <div class="space-y-6">
+
+                <!-- Topic -->
+                <div>
+
+                    <label class="block text-[11px] font-black text-slate-400 mb-3 uppercase tracking-widest">
+                        Content Topic
+                    </label>
+
+                    <input
+                        id="topic"
+                        type="text"
+                        placeholder="e.g. 5 startup lessons I learned in 2026"
+                        class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 focus:bg-white focus:border-indigo-200 transition-all text-slate-700 font-medium"
+                    >
+
+                </div>
+
+                <!-- Selectors -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Platform -->
+                    <div>
+
+                        <label class="block text-[11px] font-black text-slate-400 mb-3 uppercase tracking-widest">
+                            Platform
+                        </label>
+
+                        <select
+                            id="platform"
+                            class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 transition-all font-semibold text-slate-700"
+                        >
+
+                            <option value="linkedin">
+                                LinkedIn
+                            </option>
+
+                            <option value="instagram">
+                                Instagram
+                            </option>
+
+                            <option value="twitter">
+                                Twitter / X
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Tone -->
+                    <div>
+
+                        <label class="block text-[11px] font-black text-slate-400 mb-3 uppercase tracking-widest">
+                            Tone
+                        </label>
+
+                        <select
+                            id="tone"
+                            class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-100 transition-all font-semibold text-slate-700"
+                        >
+
+                            <option value="engaging">
+                                Engaging
+                            </option>
+
+                            <option value="professional">
+                                Professional
+                            </option>
+
+                            <option value="funny">
+                                Funny
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+                <button
+                    onclick="generateCaption()"
+                    id="gen-btn"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-bold py-5 rounded-2xl transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-3"
+                >
+
+                    <span>
+                        Generate Caption
+                    </span>
+
+                    <svg class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5">
+                        </path>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Output -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/60">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></div>
+
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-black text-slate-400">
+                        Generated Caption
+                    </span>
+
+                </div>
+
+                <button
+                    onclick="copyBlog()"
+                    class="flex items-center gap-2 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-xs font-bold text-indigo-600 transition-all"
+                >
+
+                    <svg class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3">
+                        </path>
+
+                    </svg>
+
+                    Copy
+
+                </button>
+
+            </div>
+
+            <!-- Output Body -->
+            <div class="p-8 md:p-10">
+
+                <pre
+                    id="output"
+                    class="text-slate-700 font-sans text-lg whitespace-pre-wrap leading-relaxed min-h-[180px]"
+                >
+
+Ready to generate viral content...
+
+                </pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+async function generateCaption(){
+
+    const btn = document.getElementById("gen-btn");
+
+    const output = document.getElementById("output");
+
+    const topicInput = document.getElementById("topic").value;
+
+    if(!topicInput.trim()) return;
+
+    btn.disabled = true;
+
+    btn.innerHTML = `
+
+        <svg class="animate-spin h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24">
+
+            <circle class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4">
+            </circle>
+
+            <path class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z">
+            </path>
+
+        </svg>
+
+        <span>Generating...</span>
+
+    `;
+
+    output.classList.add("opacity-40");
+
+    output.innerText =
+        "Analyzing trends and generating high-engagement content...";
+
+    try {
+
+        const res = await fetch("/api/generate-caption", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                topic: topicInput,
+
+                platform: document.getElementById("platform").value,
+
+                tone: document.getElementById("tone").value
+
+            })
+
+        });
+
+        const data = await res.json();
+
+        console.log(data);
+
+        output.classList.remove("opacity-40");
+
+        output.innerText = data.result || data.error;
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        output.classList.remove("opacity-40");
+
+        output.innerText =
+            "System Fault: Unable to connect to AI engine.";
+    }
+
+    finally {
+
+        btn.disabled = false;
+
+        btn.innerHTML = `
+
+            <span>Generate Caption</span>
+
+            <svg class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5">
+                </path>
+
+            </svg>
+
+        `;
+    }
+}
+
+function copyBlog(){
+
+    const text = document.getElementById("output").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    const popup = document.createElement("div");
+
+    popup.innerHTML = `
+
+        <div class="fixed top-6 right-6 z-50 flex items-center gap-3 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700">
+
+            <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center">
+
+                <svg class="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M5 13l4 4L19 7">
+                    </path>
+
+                </svg>
+
+            </div>
+
+            <span class="text-sm font-semibold tracking-wide">
+                Copied Successfully
+            </span>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+
+        popup.style.opacity = "0";
+
+        popup.style.transform = "translateY(-10px)";
+
+        popup.style.transition = "all 0.3s ease";
+
+    }, 1800);
+
+    setTimeout(() => {
+
+        popup.remove();
+
+    }, 2200);
+}
+
+</script>
+
+{% endblock %}
